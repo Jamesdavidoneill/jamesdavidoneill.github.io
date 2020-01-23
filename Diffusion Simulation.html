@@ -44,11 +44,45 @@
 									and the Arrow of Time</h1>
 									<p>Simulating particles diffusing within a fluid.</p>
 									<div class="iframe-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/M4PMGQeIlc0?&autoplay=1" frameborder="0" allow="accelerometer; autoplay = 1; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+									<p>The green particles start at the centre of the container, surrounded by an invisible "fluid".</p>
 
 								</header>
 								
 								<p>This simulation was written in Python using the libraries "numpy" and "matplotlib".<br/>Code for this project is available <a href= "https://github.com/Jamesdavidoneill/DiffusionSimulator2D">here</a></p>
+								<h2>Explanation</h2>
+								<p>Why does time move forward? Why is it that energy spreads out and gas fills a container? The answer lies in the concept of entropy.</p>
+								<p> By analogy, entropy is a measure of the disorder of a system.
+It represents how "spread out" the energy has become. When you place cold cream into a hot coffee the system starts with low entropy. As heat spreads from the drink to the ice cube, the energy of the system spreads out.<br/>
+The system becomes more disordered.<br/>
+The entropy increases.</p>
+
+<p>But how does this relate to the particle simulation above?<br/>
+It turns out, particle diffusion is another example of entropy increase. Take our cream and coffee example. We first add a large dollop of cream to the coffee, all the "cream particles" clump together very closely. As time passes, the molecules of cream are subject to millions of tiny collisions with the coffee molecules. This random, molecular motion is known as Brownian Motion. 
+With nothing but this random, repeated motion, the particles spread out to fill their container. There is no force pulling the particles away from the centre. Instead, it is the laws of probability that guide their movement.</p>
+								<p>This idea is so key to physics, that is has been summed up in its own law: </p>
+								<h2><b>The Second Law of Thermodynamics</b></h2>
+								<p><b>The entropy ( represented by S ) of a system always increases over time.</b></p>
+								<p>In this way, entropy "defines the arrow of time". <br/>Time moves forward in the direction of increasing entropy.</p>
+								<p>The simulation verifies the second law of thermodynamics. The programme calculates the entropy of the system at each time step.<br/>The results are displayed below:</p>
 								<div class="image main"><img src="images/Entropyplot.png" alt="" /></div>
+								<p>Side note: This is actually a graph of S/k , the entropy divided by the Boltzmann constant. Representing the entropy this way makes the numbers on the graph more manageable for a computer.</p>
+
+								<h2>Creating the simulation</h2>
+								<p> The simulation models 400 particles for 5000 time steps. In the model, the particles are all located on a "grid". This means they can only have whole number positions. <br/>At each timestep, the particle moves in a random direction: left, right, up or down.
+								<br/>If a particle moves outside the 200 by 200 lattice of the simulation, then it is refeflected back into the grid.
+								<br/>This process is repeated for each particle, for each time step.</p>
+
+								<P>At each step, the entropy was caculated. The simulation was divided into 64 regions. (separate to the grid sites)<br/>The entropy was calculated using the Gibbs entropy formula: 
+								<div class="row gtr-50 gtr-uniform">
+											<div class="col-2"><span class="image fit"><img src="images/EntropyEqn2.gif" alt="" /></span></div>
+								</div>
+								<i>Where P<sub>i</sub> is the probability of finding a particle in a given region.</i></p>
+
+								<p>The simulation could easily be expanded for greater lengths but the entropy increase slows as the system reaches its equilibrium.</P>
+
+								<p><b>Reference/Further Reading: <i>Computational Physics</i>, N.J. Giordano & H. Nakanishi, 2nd Edition</b></p>
+
+
 								
 								
 							</section>
