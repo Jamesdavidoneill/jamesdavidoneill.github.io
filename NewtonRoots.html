@@ -40,11 +40,23 @@
 									<p>Implements a class for finding the roots of a function f(x).</p>
 								</header>
 								<div class="image main"><img src="images/Function.PNG" alt="" /></div>
-								<p>This programme was written in C#.<br/> The code for this project is available <a href="https://github.com/Jamesdavidoneill/NewtonRootFinder">here</a></p>
+								<p>An important problem in maths and physics is determining the roots of a function - the points at which a function f(x) is valued at 0.<br/>
+								Sometimes, the roots of a function can be found analytically. Another approach is to find them using an algorithm.<br/>The algorithm described here was developed in the 17th century by Isaac Newton and Joseph Raphson.</p>
 								<p>The following shows an example run of the method:</p>
 								<div class="image main"><img src="images/ExampleRun.PNG" alt="" /></div>
+								<p>The user is prompted for an initial guess for the root. The algorithm then computes the root to predefined precision.<br/>Provided the function is continuous, the method is guaranteed to eventually converge to the correct root.</p>
+								<p>This programme was written in C#.<br/> The code for this project is available <a href="https://github.com/Jamesdavidoneill/NewtonRootFinder">here</a></p>
 								<h2>How the Method Works</h2>
 								<div class="image main"><img src="images/NewtonMethodAnimation.gif" alt="" /></div>
+								<p>The algorithm starts with an initial guess for the root x<sub>1</sub>
+								<br/>The algorithm then computes the equation of the tangent to the function at the point ( x<sub>1</sub>, f(x<sub>1</sub>) )
+								The next guess X<sub>2</sub> is calculated using the intersection of the tangent with the x axis.</p>
+								<p>This method can be expanded to give a general relation between two terms:</p>
+								<div class="row gtr-50 gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="images/NewtonMethodEqn.gif" alt="" /></span></div>
+								</div>
+								<p>The algorithm is repeated to give greater and greater accuracy. <br/>The algorithm stops once the difference between two subsequent guesses is less than a predefined tolerance.
+								<br/> By default the tolerance is  10<sup>-6</sup>.</p>
 								<p>Image Credits:<br/>Newton Method Animation By Ralf Pfeifer - de:Image:NewtonIteration Ani.gif, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=2268473</p>
 							</section>
 
