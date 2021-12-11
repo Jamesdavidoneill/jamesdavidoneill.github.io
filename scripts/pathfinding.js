@@ -1,6 +1,6 @@
 var data = {
       nodes: [
-        {id: "A"},
+        {id: "A", group:"visited"},
         {id: "B"},
         {
           id: "C",
@@ -110,11 +110,11 @@ anychart.onDocumentReady( function () {
   chart.interactivity().zoomOnMouseWheel(false);
 
   //set group properties
-
+  var visited = chart.group("visited")
   // set the fill of nodes in groups
-  visited.normal().fill("#ffa000");
-  visited.hovered().fill("white");
-  visited.selected().fill("#ffa000");
+  visited.normal().fill("#d44120");
+  visited.hovered().fill("#d44120");
+  visited.selected().fill("#d44120");
   
   // draw the chart
   chart.container("container").draw();
