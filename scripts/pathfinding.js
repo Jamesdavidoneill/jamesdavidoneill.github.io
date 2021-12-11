@@ -78,10 +78,6 @@ var run_pathfinding = function(){
 var dijkstra = function(){
   init_result_table()
   var graph = chart.toJson().chart.graphData
-  console.log(typeof graph)
-  console.log(graph)
-  console.log('this is the distance')
-  console.log(dist(graph, 'Start', 'E'))
   display_result_table()
 }
 var dist = function(graph, v1, v2){
@@ -110,8 +106,16 @@ anychart.onDocumentReady( function () {
 	// create a chart from the loaded data
 	chart = anychart.graph(data);
   
+  // no zoom
   chart.interactivity().zoomOnMouseWheel(false);
 
+  //set group properties
+
+  // set the fill of nodes in groups
+  visited.normal().fill("#ffa000");
+  visited.hovered().fill("white");
+  visited.selected().fill("#ffa000");
+  
   // draw the chart
   chart.container("container").draw();
 })
