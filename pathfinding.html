@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Diffusion Simulation</title>
+		<title>Dijkstra's Algorithm</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -46,7 +46,68 @@
 									<h1>Dijkstra's algorithm</h1>
 									<p>An example of a pathfinding algorithm</p>
 								</header>
-								<div id="container"></div>
+								<button id="play_button" class="button primary">Play</button>
+								
+								<div class="row">
+									<div class="col-8 col-12-small">
+										<div id="container"></div>
+									</div>
+									<div class="col-4 col-12-small">
+										<div class="table-wrapper">
+											<table id="result_table" class="alt">
+												<thead>
+													<tr>
+														<th>Vertex</th>
+														<th>Distance to Start</th>
+														<th>Previous Vertex</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>Start</td>
+														<td>0</td>
+														<td>null</td>
+													</tr>
+													<tr>
+														<td>A</td>
+														<td>Infinity</td>
+														<td>null</td>
+													</tr>
+													<tr>
+														<td>B</td>
+														<td>Infinity</td>
+														<td>null</td>
+													</tr>
+													<tr>
+														<td>C</td>
+														<td>Infinity</td>
+														<td>null</td>
+													</tr>
+													<tr>
+														<td>D</td>
+														<td>Infinity</td>
+														<td>null</td>
+													</tr>
+													<tr>
+														<td>E</td>
+														<td>Infinity</td>
+														<td>null</td>
+													</tr>
+													<tr>
+														<td>F</td>
+														<td>Infinity</td>
+														<td>null</td>
+													</tr>
+													<tr>
+														<td>Airport</td>
+														<td>Infinity</td>
+														<td>null</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
 							</section>
 
 					</div>
