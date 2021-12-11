@@ -1,6 +1,6 @@
 var data = {
       nodes: [
-        {id: "A", group:"visited"},
+        {id: "A"},
         {id: "B"},
         {
           id: "Airport",
@@ -109,12 +109,10 @@ anychart.onDocumentReady( function () {
   // no zoom
   chart.interactivity().zoomOnMouseWheel(false);
 
-  //set group properties
-  var visited = chart.group("visited")
-  // set the fill of nodes in groups
-  visited.normal().fill("#d44120");
-  visited.hovered().fill("#d44120");
-  visited.selected().fill("#d44120");
+  // enable labels of nodes
+  chart.nodes().labels().enabled(true)
+  chart.nodes().labels().fontSize(12);
+  chart.nodes().labels().fontWeight(600)
   
   // draw the chart
   chart.container("container").draw();
