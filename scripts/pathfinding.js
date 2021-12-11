@@ -3,7 +3,7 @@ var data = {
         {id: "A", group:"visited"},
         {id: "B"},
         {
-          id: "C",
+          id: "Airport",
           height: 60,
           fill: {
                src: "http://www.mcicon.com/wp-content/uploads/2021/03/Airplane-13.jpg"
@@ -25,8 +25,8 @@ var data = {
         {from: "A", to: "B"},
         {from: "B", to: "D"},
         {from: "G",   to: "Start"},
-        {from: "D",   to: "C"},
-        {from: "A",    to: "C"},
+        {from: "D",   to: "Airport"},
+        {from: "A",    to: "Airport"},
         {from: "Start",    to: "E"},
         {from: "E",    to: "G"},
         {from: "B",   to: "G"},
