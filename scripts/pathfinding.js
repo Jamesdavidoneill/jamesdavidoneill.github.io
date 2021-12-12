@@ -112,6 +112,13 @@ var get_node = function(graphData, name){
   })
   return node
 }
+var get_node_index = function(graphData, name){
+  for(var i = 0; i < graphData.nodes.length; i++){
+    if (graphData.nodes[i].id == name){
+      return i
+    }
+  }
+}
 var calc_dist = function(pos1, pos2){
   x1 = pos1.x
   y1 = pos1.y
@@ -121,24 +128,39 @@ var calc_dist = function(pos1, pos2){
   return Math.sqrt((x2 - x1)*(x2 - x1) + (y2 - y1)*(y2 - y1))
 }
 var set_node = function(id, fill, stroke, height){
-  var mapping = nodes.mapAs()
-  var index = mapping.find("id", id)
-  mapping.set(index, 'fill', fill)
-  mapping.set(index, 'stroke', stroke)
-  mapping.set(index, 'height', height)
+  json = chart.toJson();
+  var nodeindex = get_node_index(json.chart.graphData, id)
+  
+  
+  json.chart.graphData.nodes[nodeindex]['stroke'] = stroke
+  json.chart.graphData.nodes[nodeindex]['fill'] = fill
+  json.chart.graphData.nodes[nodeindex]['height'] = height
+
+  chart.container(null);
+  chart=anychart.fromJson(json)
+  chart.container('container').draw();
+
 }
 var set_edge = function(from, to, stroke){
   var mapping = edges.mapAs()
-  index = -1
+  edgeindex = -1
   for (i = 0; i < 11; i++){
-    if (mapping.get(i, "from") == from){
-      if( mapping.get(i, "to") == to){
-        index = i
+    if (edgesData[i]['from'] == from){
+      if( edgesData[i]['to'] == to){
+        edgeindex = i
         break
       }
     } 
   }
-  mapping.set(index, "stroke", stroke)
+  if(edgeindex == -1){
+    return
+  }
+  json = chart.toJson();
+  json.chart.graphData.edges[edgeindex]['stroke'] = stroke
+
+  chart.container(null);
+  chart=anychart.fromJson(json)
+  chart.container('container').draw();
 }
 
 var chart
@@ -149,8 +171,8 @@ anychart.onDocumentReady( function () {
   nodes = anychart.data.set(nodesData)
   edges = anychart.data.set(edgesData)
   data = {
-    nodes: nodes,
-    edges: edges
+    nodes: nodesData,
+    edges: edgesData
   }
   chart.data(data)
 
@@ -165,6 +187,9 @@ anychart.onDocumentReady( function () {
   // set display of nodes
   chart.nodes().normal().fill("#6abae6");
   chart.nodes().normal().stroke("#1a496b");
+
+  // set display of edges
+  chart.edges().normal().stroke("#6abae6", 2)
   
   // draw the chart
   chart.container("container").draw();
